@@ -1,1 +1,1 @@
-# qa_python
+# this is some information about my project

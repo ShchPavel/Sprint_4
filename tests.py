@@ -13,16 +13,16 @@ class TestBooksCollector:
         assert len(collector.books_genre) == 2
 
     @pytest.mark.parametrize('book_name',
-                             ['s',  # book name len 1
-                              'someBookName',  # book name len 12
-                              'qweqweqweqweqweqweqweqweqweqweqweqweqweq'])  # book name len 40
+                             ['s',                                                          # book_name len 1
+                              'someBookName',                                               # book_name len 12
+                              'qweqweqweqweqweqweqweqweqweqweqweqweqweq'])                  # book_name len 40
     def test_add_new_book_correct_len_adding_book(self, collector, book_name):
         collector.add_new_book(book_name)
         assert len(collector.books_genre) == 1
 
     @pytest.mark.parametrize('book_name',
-                             ['',  # book name len 0
-                              'qweqweqweqweqweqweqweqweqweqweqweqweqweqw'])  # book name len 41
+                             ['',                                                           # book_name len 0
+                              'qweqweqweqweqweqweqweqweqweqweqweqweqweqw'])                 # book_name len 41
     def test_add_new_book_incorrect_len_not_adding_book(self, collector, book_name):
         collector.add_new_book(book_name)
         assert len(collector.books_genre) == 0
